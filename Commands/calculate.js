@@ -17,7 +17,7 @@ register('command', calculate).setName('ca');
 
 function calculate(...args) {
 	// NOTE Checks if the amount of arguments is even or odd, if odd, itll run
-	if (args[0] == 'help' && args[1] == 'adv') {
+	if (args[0] == 'advhelp') {
 		getAdvHelp();
 		return;
 	}

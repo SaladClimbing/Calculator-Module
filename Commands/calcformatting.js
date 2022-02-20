@@ -14,17 +14,16 @@ export function formatNumber(number, decimal) {
 	if (pvObject.format) {
 		if (pvObject.noahMode) {
 			numberFormatted = number.replace(/(.)(?=(\d{3})+$)/g, '$1.');
-			if (decimal != 0) {
-				numberFormatted =
-					numberFormatted +
-					decimal.toString().slice(1, decimal.length).replace('.', ',');
-			}
+			if (decimal == 0) return numberFormatted;
+			numberFormatted =
+				numberFormatted +
+				decimal.toString().slice(1, decimal.length).replace('.', ',');
 			return numberFormatted;
 		} else {
 			numberFormatted = number.replace(/(.)(?=(\d{3})+$)/g, '$1,');
-			if (decimal != 0)
-				numberFormatted =
-					numberFormatted + decimal.toString().slice(1, decimal.length);
+			if (decimal == 0) return numberFormatted;
+			numberFormatted =
+				numberFormatted + decimal.toString().slice(1, decimal.length);
 			return numberFormatted;
 		}
 	} else {
